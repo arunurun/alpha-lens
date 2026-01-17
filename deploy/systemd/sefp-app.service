@@ -1,0 +1,14 @@
+[Unit]
+Description=SEFP Streamlit App
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/Stocks
+EnvironmentFile=/home/ubuntu/Stocks/.env
+ExecStart=/home/ubuntu/Stocks/.venv/bin/streamlit run app.py --server.headless true --server.port 8501
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
